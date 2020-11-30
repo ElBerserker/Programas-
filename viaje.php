@@ -25,7 +25,7 @@ freeenrfy1975@gmail.com-->
 	$km = 17;
 	$costo = $km * $Distancia;
 
-	echo "El costo de tu viaje es de: $costo , buen viaje!";
+	echo "El costo de tu viaje es de:" . $costo . " buen viaje!";
 	}
 	?>
 	</body>

@@ -4,7 +4,7 @@ freeenrgy1975@gmail.com-->
 <html>
 	<head><title>caja registradora</title><meta charset="UTF-8"></head>
 	<body>
-	<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+	<form method="post" action="">
 	<h1>Ingresa la cantidad de billetes y monedas que tengas.</h1>
 	<table>
 		<tr>
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $Uno = $_POST['uno']; 
   $Centavo = $_POST['centavo'];
   $total = ($Mil * 1000) + ($Quinientos * 500) + ($Doscientos * 200) + ($Cien * 100) + ($Cincuenta * 50) + ($Veinte * 20) + ($Diez * 10) + ($Cinco * 5) + ($Dos * 2) + ($Uno * 1) + ($Centavo * 0.5);
-  echo "<h2>" . "\nEl total de la caja es de :$total pesos!" . "</h2>";
+  echo "\nEl total de la caja es de :$total pesos!";
 }
 ?>
 	</body>
