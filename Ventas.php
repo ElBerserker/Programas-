@@ -1,6 +1,10 @@
 <!--Raul_Hernandez_Lopez
 freeenergy1975@gmail.com-->
 
+<!--Un vendedor ha realizado N ventas y desea saber cuántas fueron por 10,000 o menos, 
+cuántas fueron por más de 10,000 pero por menos de 20,000, y cuánto fue el monto de las 
+ventas de cada una y el monto global. Realice un algoritmo para determinar los totales.-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,7 +23,8 @@ freeenergy1975@gmail.com-->
         <body>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
         <p> No. de ventas </p>
-        Venta N. 1 ventas :
+	Venta N. 1 ventas :
+	<!--Entrada de datos-->
         <input type="text" name="venta_1" id="venta_1">
 	 Venta N. 2 ventas :
         <input type="text" name="venta_2" id="venta_2">
@@ -31,38 +36,42 @@ freeenergy1975@gmail.com-->
         <input type="text" name="venta_5" id="venta_5">
 
 	<input type="submit">	
+	</form>
 	<?php
-	    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		//Declaracion de variables.
+		$x = 0;
 		$mayor = 0;
 		$menor = 0;
-		$SUMA_MENOR = 0;
-		$SUMA_MAYOR = 0;
-		$MONTO_GLOBAL = 0;
-	        $VENTA_1 = $_POST['venta_1'];
-		$VENTA_2 = $_POST['venta_2'];
-                $VENTA_3 = $_POST['venta_3'];
-                $VENTA_4 = $_POST['venta_4'];
-                $VENTA_5 = $_POST['venta_5'];
-		$Ventas = [$VENTA_1, $VENTA_2, $VENTA_3, $VENTA_4, $VENTA_5]; 		
-
-		    for($x = 1	; $x <= 5 ; $x++){
-			$MONTO_GLOBAL += $Ventas[$x]
-		        if (($Ventas[$x] >= 0) and ($Ventas[$x] <= 10000)){
-			    $SUMA_MENOR += $Ventas[x$];
+		$suma_menor = 0;
+		$suma_mayor = 0;
+		$monto_global = 0;
+		//Declaracion del arreglo venta
+	        $venta[0] = $_POST['venta_1'];
+		$venta[1] = $_POST['venta_2'];
+                $venta[2] = $_POST['venta_3'];
+                $venta[3] = $_POST['venta_4'];
+                $venta[4] = $_POST['venta_5'];
+		
+		//Evalua los valores del arreglo y determina cuales son mayores a 0 pero menores a 10000 y 
+		//los que son mayores 10000 pero menores a 20000
+		for($x = 0; $x < 5; $x++){
+			$monto_global += $venta[$x];
+		        if ($venta[$x] >= 0 and $venta[$x] <= 10000){
+			    $suma_menor += $venta[x$];
 			    $menor += 1;
 			} 		    
-			elseif (($Ventas[$x] > 100000 ) and ($Ventas[$x] <= 20000)){
-			    $SUMA_MAYOR += $Ventas[$x];
+			elseif ($venta[$x] > 100000  and $venta[$x] <= 20000){
+			    $suma_mayor += $venta[$x];
 			    $mayor += 1;
 			}
-		    }
-		echo "Realizaste " . $menor . "ventas menores a 10,000 el monto de estas es [$"
-		. $SUMA_MENOR . "]";
+		}
+		//Impresion de resultados 
+		echo "Realizaste " . $menor . "ventas menores a 10,000 el monto de estas es [$" . $suma_menor . "]";
 		
-		echo "Realizaste " . $mayor . "ventas mayores a 10,000 el monto de estas es [$"                    
-		. $SUMA_MAYOR . "]";  
+		echo "Realizaste " . $mayor . "ventas mayores a 10,000 el monto de estas es [$" . $suma_mayor . "]";  
 	
-		echo "Mientras que el monto global es de [$" . $MONTO_GLOBAL . "]";
+		echo "Mientras que el monto global es de [$" . $monto_global . "]";
 	    }
 	?>
         </body>
