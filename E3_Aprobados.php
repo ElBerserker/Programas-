@@ -11,26 +11,24 @@ fecha: 13 de febrero del 2021-->
         <meta charset = "UTF-8">
    </head>
    <body>
-   <form method="post" action="<?php $_SERVER['PHP_SELF'];?>">
+   <form method="post" action="E3_Aprobados.php">
         <!--Entrada de datos-->
         <h6><label>Ingresa tu califcacion</label></h6>
         <input type="text" name="calificacion">
         <br />
         <br />
-        <input type="submit">
+        <input type="submit" value="enviar">
    </form>
-<?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST"){
-                //obtencion de datos.
-                $califcacion = $_POST['calificacion'];
+   <?php
+           //obtencion de datos.
+           $califcacion = $_POST['calificacion'];
 
-                if( $califcacion >= 70 ){
-                    echo "calificacion aprobatoria";
-                }//Fin if
-                else{
-                   echo ("calificacion no aprobatoria");
-                }//Fin else
-       }
+            if( $califcacion >= 70 ){
+                echo '<script type="text/javascript">alert("calificacion aprobatoria");</script>';
+            }//Fin if
+            else{
+                echo '<script type="text/javascript">alert("calificacion no aprobatoria");</script>';
+            }//Fin else
    ?>
    </body>
 </html>
