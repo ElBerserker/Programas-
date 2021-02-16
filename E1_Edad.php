@@ -19,20 +19,20 @@ fecha: 13 de febrero del 2021-->
         <br />
         <input type="submit">
    </form>
-<?php
+   <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 //obtencion de datos.
                 $edad = $_POST['edad'];               
 
                 //Evalua que el usuario sea mayor de edad.
                 if( $edad >= 18 ){
-                    echo "Eres mayor de edad.";
+                    echo '<script type="text/javascript>alert("Eres mayor de edad.");</script>';
                 }//Fin if
                 else if ( $edad < 18 ){
-                    echo "Eres menor de edad.";
+                    echo '<script type="text/javascript">alert("Eres menor de edad.");</script>';
                 }//Fin else if
                 else{
-                   echo ("Dato no valido.");
+                   echo '<script type="text/javascript>"alert("Dato no valido.");</script>';
 		}//Fin else
        }	
    ?>
