@@ -11,7 +11,7 @@ fecha: 13 de Febrero del 2021-->
         <meta charset = "UTF-8">
    </head>
    <body>
-   <form method="post" action="<?php $_SERVER['PHP_SELF'];?>">
+   <form method="post" action="E2_NumerosPares.php">
         <!--Entrada de datos-->
         <h6><label>Numero 1</label></h6>
 	<input type="text" name="numero1">
@@ -24,10 +24,9 @@ fecha: 13 de Febrero del 2021-->
 
         <br />
         <br />
-        <input type="submit">
+        <input type="submit" value="Enviar">
    </form>
 <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	    $numero_1 = $_POST['numero1'];
 	    $numero_2 = $_POST['numero2'];
 	    $numero_3 = $_POST['numero3'];
@@ -35,13 +34,12 @@ fecha: 13 de Febrero del 2021-->
 
 	    for($x = 0; $x < 3; $x++){ 
                 if( $numeros[$x]%2 == 0 ){
-                    echo "El numero " . $numeros[$x] ." es par" . "<br  />";
+                    echo '<script type="text/javascript">alert("El numero ' . $numeros[$x] .' es par");</script>';
                 }
                 else{
-                   echo "El numero " . $numeros[$x] . " es impar". "<br />";
+                    echo '<script type="text/javascript">alert("El numero ' . $numeros[$x] . ' es impar");</script>';
 		}
 	   }	
-       }
    ?>
    </body>
 </html>
